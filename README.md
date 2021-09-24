@@ -1,5 +1,6 @@
 # Random Balanced Team Generator Bot for Discord
 
+New version not ready for discord usage.
 
 ## :ghost: What it does ?  
 This bot splits all players into two teams according to their ranking. The purpose is to generate 2 teams with equal power (fair) to compete in a game.
