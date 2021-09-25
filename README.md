@@ -8,6 +8,11 @@ The algorithm sorts all players by their level/ranking and puts in order and adj
 ```console
 pip install -U discord.py
 pip install discord-ext-typed-commands
+pip install numpy
+pip install pandas
+pip install tabulate
+
+pip install -U discord.py discord-ext-typed-commands numpy pandas tabulate
 ```
 
 ## :wrench: Usage :
