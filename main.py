@@ -1,17 +1,32 @@
+import discord
+from discord.ext import commands 
 from numpy import true_divide
 import pandas as pd
 from tabulate import tabulate
 import random
 
+bot = discord.Client()
 list_names = []
 list_lv = []
 team_one=pd.DataFrame()
 team_two=pd.DataFrame()
 
-def on_message(message):
+
+@bot.event
+async def on_ready():	
+	
+	guild_count = 0
+	for guild in bot.guilds:		
+		print(f"- {guild.id} (name: {guild.name})")
+		guild_count = guild_count + 1
+	print("SampleDiscordBot is in " + str(guild_count) + " guilds.")
+
+
+@bot.event
+async def on_message(message):
 
 	# Make list to the comming message
-	words = message.split(" ")
+	words = message.content.split(" ")
 	if(words[0] == "!vs"):
 		for i in range(len(words)):
 			if(i % 2 == 1):
@@ -31,8 +46,8 @@ def on_message(message):
 
 		# Put values at the DataFrame
 		for i, row in df.iterrows():
-			print("i = ", i )
-			print(isStable ," is stable")
+			# print("i = ", i )
+			# print(isStable ," is stable")
 			if i % 2 == 0:
 				team_one.loc[i,'Player']=(row['Name'])
 				team_one.loc[i,'Rank']=(row['Level'])
@@ -70,17 +85,17 @@ def on_message(message):
 							team_two.iloc[j,0] = temp3
 
 
-		print("Team 1")		
-		print(tabulate(team_one, headers='keys', tablefmt='psql',showindex=False))
-		print(team_one.sum())
-		print("---------------------------")	
-		print("Team 2")	
-		print(tabulate(team_two, headers='keys', tablefmt='psql',showindex=False))
-		print(team_two.sum())
+		await message.channel.send("Team 1")		
+		await message.channel.send(tabulate(team_one, headers='keys', tablefmt='psql',showindex=False))
+		# await message.channel.send(team_one.sum())
+		await message.channel.send("---------------------------")	
+		await message.channel.send("Team 2")	
+		await message.channel.send(tabulate(team_two, headers='keys', tablefmt='psql',showindex=False))
+		# await message.channel.send(team_two.sum())
 
 		team_one.drop(team_one.index, inplace=True)
 		team_two.drop(team_two.index, inplace=True)
 		list_lv.clear()
 		list_names.clear()
 
-on_message("!vs a 5 b 4 c 3 d 2 e 5 f 1 g 5 h 4 j 3 t 2")
+bot.run("Your Token")

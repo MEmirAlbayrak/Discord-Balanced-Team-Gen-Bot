@@ -1,10 +1,14 @@
 # Random Balanced Team Generator Bot for Discord
 
-New version not ready for discord usage.
-
 ## :ghost: What it does ?  
 This bot splits all players into two teams according to their ranking. The purpose is to generate 2 teams with equal power (fair) to compete in a game.
 The algorithm sorts all players by their level/ranking and puts in order and adjusts power ranking as close as possible. Then program adjusts the teams and mixes randomly.
+
+## Discord lib installation
+```console
+pip install -U discord.py
+pip install discord-ext-typed-commands
+```
 
 ## :wrench: Usage :
 It is advised to use the ranking between one and five.
