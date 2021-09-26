@@ -25,11 +25,14 @@ async def on_ready():
 async def on_message(message):
 
 	# Make list to the comming message
-	words = message.content.split(" ")
+	print(message.content)
+
+	tempwords = message.content.replace("\n" , " ")
+	words = tempwords.split(" ")
 	if message.author.bot == False:
 
 		if(words[0] == "!template"):
-			await message.channel.send("!vs oyuncu1 level oyuncu2 level oyuncu3 level oyuncu4 level oyuncu5 level oyuncu6 level oyuncu7 level oyuncu8 level oyuncu9 level oyuncu10 level")	
+			await message.channel.send("!vs\noyuncu1 level\noyuncu2 level\noyuncu3 level\noyuncu4 level\noyuncu5 level\noyuncu6 level\noyuncu7 level\noyuncu8 level\noyuncu9 level\noyuncu10 level")	
 	
 		if(words[0] == "!vs"):
 			for i in range(len(words)):
