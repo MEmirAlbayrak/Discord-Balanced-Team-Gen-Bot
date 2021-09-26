@@ -11,6 +11,22 @@ pip install -U discord.py discord-ext-typed-commands numpy pandas tabulate
 
 ## :wrench: Usage :
 It is advised to use the ranking between one and five.
+
+```
+!template 
+```
+> !vs
+> oyuncu1 level
+> oyuncu2 level
+> oyuncu3 level
+> oyuncu4 level
+> oyuncu5 level
+> oyuncu6 level
+> oyuncu7 level
+> oyuncu8 level
+> oyuncu9 level
+> oyuncu10 level
+
 ```
 !vs [Player 1 Name] [Player 1 Rank] [Player 2 Name] [Player 2 Rank]...
 ```
